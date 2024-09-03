@@ -1,0 +1,36 @@
+<h1>detalle de libro</h1>
+
+<p>{{ libro.titulo }} </p>
+ <p>{{ libro.fecha }}</p>
+<p>{{ libro.categoria }}</p>
+
+<p>--------------MANY TO MANY------------</p>
+
+<ul>
+    
+    {% for autor in libro.autor.all %}
+        <li>
+            {{autor}}
+        </li>
+    {% endfor %}
+        
+</ul>
+
+
+<p>----- AGREGAR AUTORES A UN LIBRO--------</p>
+<form action="" method="POST">{% csrf_token %}
+    <input type="text" id="autor" name="autor" placeholder="Agregar autor">
+    <button type="submit">Guardar</button>
+</form>
+
+
+
+<form method="post">
+    {% csrf_token %}
+    <select name="autor" id="autor">
+        {% for autor in autores %}
+            <option value="{{ autor.id }}">{{ autor.nombre }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Agregar Autor</button>
+</form>

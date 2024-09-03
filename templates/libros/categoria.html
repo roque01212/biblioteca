@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>
+        <form action="" method="GET">{% csrf_token %}
+
+            <input type="text" id="kword" name="kword" placeholder="Ingrese el nombre">
+            <input type="date" name="fecha1" id="fecha1">
+            <input type="date" name="fecha2" id="fecha2">
+
+            <button type="submit">consultar</button>
+        </form>
+    </p>
+    <h1>Lista de libros</h1>
+    <ul>
+        
+        {% for i in lista_libros %}
+            <li> {{i}} </li>
+        {% endfor %}
+            
+    </ul>
+    
+</body>
+</html>
